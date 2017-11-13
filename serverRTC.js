@@ -23,4 +23,6 @@ var server = require('https').createServer(ssl_options, app);
 
 app.use('/peerjs', ExpressPeerServer(server, options));
 
-server.listen(3020);
+server.listen(3020, '45.32.119.158', function() {
+    console.log('listening on https://45.32.119.158:3020')
+});
