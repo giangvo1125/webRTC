@@ -3,6 +3,8 @@ var config = {
 		port: 3099, 
 		// domain: '192.168.86.23',
 		domain: '192.168.1.24',  
+		domainRTC: '192.168.1.24', 
+		portRTC: '3029', 
 		apiUrl: 'http://45.63.25.184:7093/', 
 		betUrl: 'http://45.63.25.184:16969/', 
 		timeRefresh: 60, 
@@ -26,6 +28,8 @@ var config = {
 	production: {
 		port: 3099, 
 		domain: '45.32.119.158', 
+		domainRTC: '45.32.119.158', 
+		portRTC: '3029', 
 		apiUrl: 'http://45.63.25.184:7090/', 
 		betUrl: 'http://45.63.25.184:16966/', 
 		timeRefresh: 60, 

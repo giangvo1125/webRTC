@@ -7,7 +7,8 @@ class IndexComponent extends Component{
         super(props)
         context.router
         this.state = {
-        	id: ''
+        	id: '', 
+        	peer: new Peer({host: config.domainRTC, port: config.portRTC, path: '/peerjs', secure: true})
         }
         // this.isShow = 'detail'
     }
@@ -15,8 +16,7 @@ class IndexComponent extends Component{
     	
     }
 	componentDidMount() {
-		// var peer = new Peer({key: '8uspaz2f6imuz0k9'}); 
-		var peer = new Peer({host: '45.32.119.158', port: 3029, path: '/peerjs', secure: true});
+		var peer = this.state.peer
 		let self = this
 		setTimeout(()=> {
 			this.setState({id: peer.id})
@@ -25,9 +25,14 @@ class IndexComponent extends Component{
 			  	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;navigator.getUserMedia({video: true, audio: true}, function(stream) {
 					call.answer(stream); // Answer the call with an A/V stream.
 				    call.on('stream', function(remoteStream) {
-				    	let video = self.refs.videoCall;
-				    	video.src = URL.createObjectURL(remoteStream)
-				    	video.play();
+				    	let videoRecieve = self.refs.videoRecieve;
+				    	videoRecieve.src = URL.createObjectURL(call.localStream)
+				    	videoRecieve.play();
+				    	setTimeout(()=> {
+				    		let videoCall = self.refs.videoCall;
+					    	videoCall.src = URL.createObjectURL(remoteStream)
+					    	videoCall.play();
+				    	},1000)
 				      // Show stream in some video/canvas element.
 				    });
 				;}, function(err) {
@@ -39,23 +44,21 @@ class IndexComponent extends Component{
 	}
 	componentDidUpdate() {
 	}
-	_onChangeRoute(value) {
-		if(value != this.state.isShow) {
-			this.setState({
-				isShow: value
-			})
-		}
-	}
 	onConnectCall() {
 		let id = $('#id').val() || ''
-		var peer = new Peer({host: '45.32.119.158', port: 3029, path: '/peerjs', secure: true});
+		var peer = this.state.peer;
 		let self = this
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;navigator.getUserMedia({video: true, audio: true}, function(stream) {
 			var call = peer.call(id, stream);
 			call.on('stream', function(remoteStream) {
-		    	let video = self.refs.videoRecieve;
-		    	video.src = URL.createObjectURL(remoteStream)
-		    	video.play();
+				let videoCall = self.refs.videoCall;
+		    	videoCall.src = URL.createObjectURL(call.localStream)
+		    	videoCall.play();
+		    	setTimeout(()=> {
+		    		let videoRecieve = self.refs.videoRecieve;
+			    	videoRecieve.src = URL.createObjectURL(remoteStream)
+			    	videoRecieve.play();
+		    	},1000)
 			// Show stream in some element.
 			})
 		;}, function(err) {

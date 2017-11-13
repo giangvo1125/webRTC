@@ -1,3 +1,4 @@
+var config = require('./config')
 var express = require('express');
 var app = express();
 var ExpressPeerServer = require('peer').ExpressPeerServer;
@@ -22,7 +23,6 @@ app.use('/api', ExpressPeerServer(server, options));
 var server = require('https').createServer(ssl_options, app);
 
 app.use('/peerjs', ExpressPeerServer(server, options));
-
-server.listen(3029, '45.32.119.158', function() {
-    console.log('listening on https://45.32.119.158:3029')
+server.listen(config.portRTC, config.domainRTC, function() {
+    console.log('listening on https://'+config.domainRTC+':'+config.portRTC)
 });
