@@ -15,7 +15,8 @@ class IndexComponent extends Component{
     	
     }
 	componentDidMount() {
-		var peer = new Peer({key: '8uspaz2f6imuz0k9'}); 
+		// var peer = new Peer({key: '8uspaz2f6imuz0k9'}); 
+		var peer = new Peer({host: 'localhost', port: 9000, path: '/'});
 		let self = this
 		setTimeout(()=> {
 			this.setState({id: peer.id})
@@ -47,7 +48,7 @@ class IndexComponent extends Component{
 	}
 	onConnectCall() {
 		let id = $('#id').val() || ''
-		var peer = new Peer({key: '8uspaz2f6imuz0k9'});
+		var peer = new Peer({host: 'localhost', port: 9000, path: '/'});
 		let self = this
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;navigator.getUserMedia({video: true, audio: true}, function(stream) {
 			var call = peer.call(id, stream);

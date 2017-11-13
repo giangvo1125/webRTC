@@ -2,7 +2,7 @@ var config = {
 	development: {
 		port: 3099, 
 		// domain: '192.168.86.23',
-		domain: '45.32.119.158',  
+		domain: 'localhost',  
 		apiUrl: 'http://45.63.25.184:7093/', 
 		betUrl: 'http://45.63.25.184:16969/', 
 		timeRefresh: 60, 
@@ -24,7 +24,7 @@ var config = {
 		sameTypeBet: ['outright', 'oddEvenTotalGoal', 'mixParlay', 'correctScore', 'htft', 'goal'], 
 	}, 
 	production: {
-		port: 3023, 
+		port: 3099, 
 		domain: '45.32.119.158', 
 		apiUrl: 'http://45.63.25.184:7090/', 
 		betUrl: 'http://45.63.25.184:16966/', 
