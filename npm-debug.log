@@ -2,21 +2,21 @@
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'run',
-1 verbose cli   'start:dev' ]
+1 verbose cli   'start:rtc' ]
 2 info using npm@3.10.10
 3 info using node@v6.10.3
-4 verbose run-script [ 'prestart:dev', 'start:dev', 'poststart:dev' ]
-5 info lifecycle ufabet@1.0.0~prestart:dev: ufabet@1.0.0
-6 silly lifecycle ufabet@1.0.0~prestart:dev: no script for prestart:dev, continuing
-7 info lifecycle ufabet@1.0.0~start:dev: ufabet@1.0.0
-8 verbose lifecycle ufabet@1.0.0~start:dev: unsafe-perm in lifecycle true
-9 verbose lifecycle ufabet@1.0.0~start:dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/kolabs/Documents/webRTC/webRTC/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-10 verbose lifecycle ufabet@1.0.0~start:dev: CWD: /Users/kolabs/Documents/webRTC/webRTC
-11 silly lifecycle ufabet@1.0.0~start:dev: Args: [ '-c',
-11 silly lifecycle   'CONFIG=development NODE_ENV=development node server.js' ]
-12 silly lifecycle ufabet@1.0.0~start:dev: Returned: code: 1  signal: null
-13 info lifecycle ufabet@1.0.0~start:dev: Failed to exec start:dev script
-14 verbose stack Error: ufabet@1.0.0 start:dev: `CONFIG=development NODE_ENV=development node server.js`
+4 verbose run-script [ 'prestart:rtc', 'start:rtc', 'poststart:rtc' ]
+5 info lifecycle ufabet@1.0.0~prestart:rtc: ufabet@1.0.0
+6 silly lifecycle ufabet@1.0.0~prestart:rtc: no script for prestart:rtc, continuing
+7 info lifecycle ufabet@1.0.0~start:rtc: ufabet@1.0.0
+8 verbose lifecycle ufabet@1.0.0~start:rtc: unsafe-perm in lifecycle true
+9 verbose lifecycle ufabet@1.0.0~start:rtc: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/kolabs/Documents/webRTC/webRTC/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle ufabet@1.0.0~start:rtc: CWD: /Users/kolabs/Documents/webRTC/webRTC
+11 silly lifecycle ufabet@1.0.0~start:rtc: Args: [ '-c',
+11 silly lifecycle   'CONFIG=development NODE_ENV=development node serverRTC.js' ]
+12 silly lifecycle ufabet@1.0.0~start:rtc: Returned: code: 1  signal: null
+13 info lifecycle ufabet@1.0.0~start:rtc: Failed to exec start:rtc script
+14 verbose stack Error: ufabet@1.0.0 start:rtc: `CONFIG=development NODE_ENV=development node serverRTC.js`
 14 verbose stack Exit status 1
 14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
@@ -29,18 +29,18 @@
 15 verbose pkgid ufabet@1.0.0
 16 verbose cwd /Users/kolabs/Documents/webRTC/webRTC
 17 error Darwin 16.6.0
-18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "start:dev"
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "start:rtc"
 19 error node v6.10.3
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
-22 error ufabet@1.0.0 start:dev: `CONFIG=development NODE_ENV=development node server.js`
+22 error ufabet@1.0.0 start:rtc: `CONFIG=development NODE_ENV=development node serverRTC.js`
 22 error Exit status 1
-23 error Failed at the ufabet@1.0.0 start:dev script 'CONFIG=development NODE_ENV=development node server.js'.
+23 error Failed at the ufabet@1.0.0 start:rtc script 'CONFIG=development NODE_ENV=development node serverRTC.js'.
 23 error Make sure you have the latest version of node.js and npm installed.
 23 error If you do, this is most likely a problem with the ufabet package,
 23 error not with npm itself.
 23 error Tell the author that this fails on your system:
-23 error     CONFIG=development NODE_ENV=development node server.js
+23 error     CONFIG=development NODE_ENV=development node serverRTC.js
 23 error You can get information on how to open an issue for this project with:
 23 error     npm bugs ufabet
 23 error Or if that isn't available, you can get their info via:
