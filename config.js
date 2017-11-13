@@ -2,7 +2,7 @@ var config = {
 	development: {
 		port: 3099, 
 		// domain: '192.168.86.23',
-		domain: 'localhost',  
+		domain: '192.168.1.24',  
 		apiUrl: 'http://45.63.25.184:7093/', 
 		betUrl: 'http://45.63.25.184:16969/', 
 		timeRefresh: 60, 
