@@ -1,0 +1,78 @@
+var config = {
+	development: {
+		port: 3023, 
+		// domain: '192.168.86.23',
+		domain: 'localhost',  
+		apiUrl: 'http://45.63.25.184:7093/', 
+		betUrl: 'http://45.63.25.184:16969/', 
+		timeRefresh: 60, 
+		mobileUrl: 'http://ufa.kolabs.co:6868', 
+		expireCookies: 365, 
+		isLogout: true, 
+		oddChangeTime: 1500, 
+		timeCarousel: 10, 
+		urlNotAuthor: [
+			'login', 
+			'about', 
+			'rule', 
+			'help', 
+			'contact', 
+			'why', 
+			'betslip', 
+			'parlay', 
+		], 
+		sameTypeBet: ['outright', 'oddEvenTotalGoal', 'mixParlay', 'correctScore', 'htft', 'goal'], 
+	}, 
+	production: {
+		port: 3023, 
+		domain: '45.32.119.158', 
+		apiUrl: 'http://45.63.25.184:7090/', 
+		betUrl: 'http://45.63.25.184:16966/', 
+		timeRefresh: 60, 
+		mobileUrl: 'http://ufa.kolabs.co:6868', 
+		expireCookies: 365, 
+		isLogout: true, 
+		oddChangeTime: 1500, 
+		timeCarousel: 10, 
+		urlNotAuthor: [
+			'login', 
+			'about', 
+			'rule', 
+			'help', 
+			'contact', 
+			'why', 
+			'betslip', 
+			'parlay', 
+		], 
+		sameTypeBet: ['outright', 'oddEvenTotalGoal', 'mixParlay', 'correctScore', 'htft', 'goal'], 
+	}, 
+	qa: {
+		port: 3025, 
+		domain: '45.32.119.158', 
+		apiUrl: 'http://45.63.25.184:7093/', 
+		betUrl: 'http://45.63.25.184:16969/', 
+		timeRefresh: 60, 
+		mobileUrl: 'http://ufa.kolabs.co:6868', 
+		expireCookies: 365, 
+		isLogout: true, 
+		oddChangeTime: 1500, 
+		timeCarousel: 10, 
+		urlNotAuthor: [
+			'login', 
+			'about', 
+			'rule', 
+			'help', 
+			'contact', 
+			'why', 
+			'betslip', 
+			'parlay', 
+		], 
+		sameTypeBet: ['outright', 'oddEvenTotalGoal', 'mixParlay', 'correctScore', 'htft', 'goal'], 
+	},
+	
+	
+}
+const env = process.env.CONFIG || 'development'
+
+
+module.exports = config[env];
