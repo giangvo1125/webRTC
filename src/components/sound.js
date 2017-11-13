@@ -25,7 +25,7 @@ class IndexComponent extends Component{
 			  	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;navigator.getUserMedia({video: true, audio: true}, function(stream) {
 					call.answer(stream); // Answer the call with an A/V stream.
 				    call.on('stream', function(remoteStream) {
-				    	let video = self.refs.video;
+				    	let video = self.refs.videoCall;
 				    	video.src = URL.createObjectURL(remoteStream)
 				    	video.play();
 				      // Show stream in some video/canvas element.
@@ -53,7 +53,7 @@ class IndexComponent extends Component{
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;navigator.getUserMedia({video: true, audio: true}, function(stream) {
 			var call = peer.call(id, stream);
 			call.on('stream', function(remoteStream) {
-		    	let video = self.refs.video;
+		    	let video = self.refs.videoRecieve;
 		    	video.src = URL.createObjectURL(remoteStream)
 		    	video.play();
 			// Show stream in some element.
@@ -69,7 +69,8 @@ class IndexComponent extends Component{
     			Your Id: {id}<br/>
     			<input id="id"/>
     			<button onClick={this.onConnectCall.bind(this)}>Call</button><br/>
-    			<video ref="video"></video>
+    			<video ref="videoCall"></video><br/>
+    			<video ref="videoRecieve"></video>
     		</div>
     	)
     }
