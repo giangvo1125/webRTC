@@ -1,27 +1,26 @@
 var express = require('express');
 var app = express();
 var ExpressPeerServer = require('peer').ExpressPeerServer;
-
-app.get('/', function(req, res, next) {
-    console.log("get /")
-    res.send('Hello world!');
-});
+var fs = require('fs-extra')
+app.get('/', function(req, res, next) { res.send('Hello world!'); });
 
 var server = app.listen(9000);
 
 var options = {
-    debug: true,
-    allow_discovery: true
+    debug: true
 }
 
-peerServer = ExpressPeerServer(server, options)
-app.use('/api', peerServer);
+var ssl_options = {
+    key: fs.readFileSync('key/star_apps_aegpresents_com.key'),
+    cert: fs.readFileSync('key/star_apps_aegpresents_com.pem')
+};
 
-peerServer.on('connection', function(id) {
-    console.log(id)
-  console.log(server._clients)
-});
+app.use('/api', ExpressPeerServer(server, options));
 
-server.on('disconnect', function(id) {
-    console.log(id + "deconnected")
-});
+// OR
+
+var server = require('https').createServer(ssl_options, app);
+
+app.use('/peerjs', ExpressPeerServer(server, options));
+
+server.listen(3020);
